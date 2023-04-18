@@ -20,7 +20,11 @@ const UserSchema = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now()
-  }
+  },
+  designs: { // All of the user's custom designs that have been uploaded previously
+    type: Object,
+    required: false,
+  },
   // Add more fields for information on the user.
 });
 

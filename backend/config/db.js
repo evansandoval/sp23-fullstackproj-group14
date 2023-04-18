@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Replace this with your MONGOURI.
-const MONGOURI = "mongodb://127.0.0.1:27017/hw9db";
+const MONGOURI = "mongodb://127.0.0.1:27017/fullstackproj";
 const InitiateMongoServer = async () => {
   try {
     await mongoose.connect(MONGOURI, {
