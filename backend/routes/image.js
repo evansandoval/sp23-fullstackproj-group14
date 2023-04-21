@@ -6,7 +6,8 @@ const fs = require("fs")
 // Read image file and convert it to binary data
 const imagePath = '../test.jpg';
 
-//
+//takes an image path and converts it to base64
+//For frontend ppl -- need to figure this out
 function imageToBinary(image) {
     return fs.readFileSync(image, 'base64');
 }  
@@ -16,5 +17,5 @@ function binaryToBuffer(base64) {
 }
 const binary = imageToBinary(imagePath)
 const buffer = binaryToBuffer(binary)
-console.log(buffer.toJSON())
+
 fs.writeFileSync("new-image.jpg", buffer);
