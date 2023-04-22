@@ -1,4 +1,4 @@
-import Design from "../components/Design";
+import Design from "../../src/components/Design";
 
 function Gallery() {
     return (
