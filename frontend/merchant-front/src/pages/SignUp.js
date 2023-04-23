@@ -13,17 +13,19 @@ import {
   import axios from "axios";
   
   function CreateAccount() {
-    const [username, setUsername] = useState(''); 
-    const [password, setPassword] = useState(''); 
-    const [email, setEmail] = useState('');
+    const [stateUsername, setUsername] = useState(''); 
+    const [statePassword, setPassword] = useState(''); 
+    const [stateEmail, setEmail] = useState('');
   
   
     const handleSubmit = () => {
-      axios.post('http://localhost:4001/user/signup', {username, password, email})
+      let postObj = {username: stateUsername, password: statePassword, email: stateEmail}
+      console.log(postObj)
+      axios.post('http://localhost:4001/user/signup', postObj)
         .then((res) => {
           console.log('Submit Success');
         })
-        .catch((error) => console.log(error.response.data));
+        .catch((error) => console.log(error.response));
     }
   
     return (
@@ -38,15 +40,15 @@ import {
                   <Stack spacing={3}>
                     <FormControl isRequired>
                         <FormLabel color="white">Email</FormLabel>
-                        <Input value={email} onChange={e=>setEmail(e.target.value)} placeholder="Enter your email" color="white" />
+                        <Input value={stateEmail} onChange={e=>setEmail(e.target.value)} placeholder="Enter your email" color="white" />
                     </FormControl>
                     <FormControl isRequired>
                       <FormLabel color="white">Username</FormLabel>
-                      <Input value={username} onChange={e=>setUsername(e.target.value)}color="white" placeholder="Enter your username" />
+                      <Input value={stateUsername} onChange={e=>setUsername(e.target.value)}color="white" placeholder="Enter your username" />
                     </FormControl>
                     <FormControl isRequired>
                       <FormLabel color="white">Password</FormLabel>
-                      <Input value={password} onChange={e=>setPassword(e.target.value)}color="white" type="password" placeholder="Enter your password" />
+                      <Input value={statePassword} onChange={e=>setPassword(e.target.value)}color="white" type="password" placeholder="Enter your password" />
                     </FormControl>
                     <Button onClick={handleSubmit} type="submit" bgColor="white" size="lg">
                       <Text color="black">Submit</Text>
