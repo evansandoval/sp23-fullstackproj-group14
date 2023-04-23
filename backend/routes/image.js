@@ -54,3 +54,5 @@ router.delete('/delete', auth, async (req, res) => {
       res.send({ message: 'Error in Fetching user' });
     }
 });
+
+module.exports = router
