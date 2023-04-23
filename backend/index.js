@@ -10,7 +10,7 @@ InitiateMongoServer();
 const app = express();
 
 // PORT
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001; //use a different port for backend
 
 // Middleware
 app.use(express.json());
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 //  * Method - *
 
 app.use("/user", user);
-app.use('/image', image);
+app.use("/image", image);
 
 app.listen(PORT, (req, res) => {
   console.log(`Server Started at PORT ${PORT}`);
