@@ -1,22 +1,20 @@
-import { Box, Button, ChakraProvider, FormControl, Image, Link, Input, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, ChakraProvider, Link, Image, FormControl, Input, Stack, Text } from "@chakra-ui/react";
 import React, {useState} from "react"; 
-import axios from "axios";
-
+ import axios from "axios";
+  
 function CreateAccount() {
-  const [stateUsername, setUsername] = useState(''); 
-  const [statePassword, setPassword] = useState(''); 
-  const [stateEmail, setEmail] = useState('');
+    const [stateUsername, setUsername] = useState(''); 
+    const [statePassword, setPassword] = useState(''); 
+    const [stateEmail, setEmail] = useState('');
 
 
-  const handleSubmit = () => {
-    let postObj = {username: stateUsername, password: statePassword, email: stateEmail}
-    console.log(postObj)
-    axios.post('http://localhost:4001/user/signup', postObj)
-      .then((res) => {
-        console.log('Submit Success');
-      })
-      .catch((error) => console.log(error.response));
-  }
+    const handleSubmit = () => {
+        axios.post('http://localhost:4001/user/signup', {username, password, email})
+        .then((res) => {
+            console.log('Submit Success');
+        })
+        .catch((error) => console.log(error.response.data));
+    }
 
     return (
         <ChakraProvider>
@@ -35,13 +33,13 @@ function CreateAccount() {
                     <form onSubmit={handleSubmit}>
                         <Stack spacing={4} mt='20px' mb='30px'>
                             <FormControl isRequired>
-                                <Input type='email' onChange={e=>setEmail(e.target.value)} placeholder='Email' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
+                                <Input value={stateEmail} type='stateEmail' onChange={e=>setEmail(e.target.value)} placeholder='Email' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
                             </FormControl>
                             <FormControl isRequired>
-                                <Input type='username' onChange={e=>setUsername(e.target.value)} placeholder='Username' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
+                                <Input value={stateUsername} type='stateUsername' onChange={e=>setUsername(e.target.value)} placeholder='Username' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
                             </FormControl>
                             <FormControl isRequired>
-                                <Input type='password' onChange={e=>setPassword(e.target.value)} placeholder='Password' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
+                                <Input value={statePassword} type='statePassword' onChange={e=>setPassword(e.target.value)} placeholder='Password' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
                             </FormControl>
                         </Stack>
                         <Box align='center'>

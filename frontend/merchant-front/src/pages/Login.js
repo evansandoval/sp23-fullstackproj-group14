@@ -27,20 +27,20 @@ return (
           <Link href='/Login'><Button variant='ghost' color='#E0DDD5' _hover={{ opacity: '0.4' }} borderRadius='0px' size='4xl' py='10px' px='10px'>Login</Button></Link>
         </Stack>
         <Box bg='#111111' overflow='auto' h='calc(100vh)'>
-            <Stack direction='column' mx='35%' my='5%'>
+            <Stack direction='column' mx='35%' my='4%'>
                 <Image src='/logo.png' w='130px' />
                 <Text as='b' fontSize='60px' color='white' lineHeight='1'>Login</Text>
                 <Text fontSize='24px' color='white'>Please sign in to continue.</Text>
                 <form onSubmit={handleSubmit}>
                     <Stack spacing={4} mt='20px' mb='30px'>
                         <FormControl isRequired>
-                            <Input type='email' onChange={e=>setEmail(e.target.value)} placeholder='Email' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
+                            <Input value={stateEmail} type='stateEmail' onChange={e=>setEmail(e.target.value)} placeholder='Email' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
                         </FormControl>
                         <FormControl isRequired>
-                            <Input type='username' onChange={e=>setUsername(e.target.value)} placeholder='Username' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
+                            <Input value={stateUsername} type='stateUsername' onChange={e=>setUsername(e.target.value)} placeholder='Username' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
                         </FormControl>
                         <FormControl isRequired>
-                            <Input type='password' onChange={e=>setPassword(e.target.value)} placeholder='Password' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
+                            <Input value={statePassword} type='statePassword' onChange={e=>setPassword(e.target.value)} placeholder='Password' bg='#E0DDD5' color='black' border='0px' borderRadius='0px' py='20px' />
                         </FormControl>
                     </Stack>
                     <Stack align='center' spacing={3}>
