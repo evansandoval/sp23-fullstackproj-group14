@@ -1,14 +1,17 @@
 import { Stack, Box, Text, Image, Button, ChakraProvider } from '@chakra-ui/react';
 import Link from 'next/link';
-import NavBar from './NavBar';
 
 function Home() {
   return (
     <ChakraProvider>
-      {/* <Box align='right' bg='#E0DDD5'>
-            <NavBar />
-      </Box> */}
       <Box bg='#E0DDD5' overflow='auto' h='calc(100vh)'>
+        <Stack align='center' spacing={4} direction='row' bg='#111111' h='60px' pl='30px'>
+          <Link href='/'><Image src='/logo.png' alt='Merchant Logo' w='36px'></Image></Link>
+          <Link href='/Gallery'><Button variant='ghost' color='#E0DDD5' _hover={{ opacity: '0.4' }} borderRadius='0px' size='4xl' py='10px' px='10px'>Gallery</Button></Link>
+          <Link href='/VotingPage'><Button variant='ghost' color='#E0DDD5' _hover={{ opacity: '0.4' }} borderRadius='0px' size='4xl' py='10px' px='10px'>Vote</Button></Link>
+          <Link href='/DesignUpload'><Button variant='ghost' color='#E0DDD5' _hover={{ opacity: '0.4' }} borderRadius='0px' size='4xl' py='10px' px='10px'>Upload</Button></Link>
+          <Link href='/Login'><Button variant='ghost' color='#E0DDD5' _hover={{ opacity: '0.4' }} borderRadius='0px' size='4xl' py='10px' px='10px'>Login</Button></Link>
+        </Stack>
         <Stack direction='column' align='center' pb='80px' spacing='10px'>
           <Image src='/taylor-evermore.png' alt='Taylor Swift Folklore Photo' width='100%' fallbackSrc='https://via.placeholder.com/500' />
           <Stack spacing='5px' pt='50px' pb='20px' align='center'>
